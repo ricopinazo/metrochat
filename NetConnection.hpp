@@ -28,7 +28,7 @@ class NetConnection
 		void set_domain_name(std::string domain_name);
 		NetConnection *accept_new_connection();
 		void send_frame(void *msg, size_t size);
-		void receive_frame(void *msg, size_t size);
+		void receive_frame(void *msg, size_t &size);
 		void close();
 };
 
