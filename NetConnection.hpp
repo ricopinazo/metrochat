@@ -13,7 +13,7 @@ class NetConnection
 	private:
 		ip_t ip;
 		port_t port;
-		int socket_descriptor;
+		int sd;	// Socket descriptor
 
 	public:		
 		NetConnection();
@@ -21,10 +21,18 @@ class NetConnection
 		NetConnection(ip_t new_ip, port_t new_port);
 		NetConnection(std::string domain_name, port_t new_port);
 		~NetConnection();
+		void set_socket(int new_sd);
+		int get_socket();
 		void set_ip(ip_t new_ip);
 		ip_t get_ip();
 		void set_port(port_t new_port);
 		port_t get_port();
+		void init_TCP_server(uint8_t max_clients);
+		void connect_TCP_client();
+		NetConnection *accept_TCP_connection();
+
+
+		void socket_UDP();
 		void set_domain_name(std::string domain_name);
 		NetConnection *accept_new_connection();
 		void send_frame(void *msg, size_t size);
