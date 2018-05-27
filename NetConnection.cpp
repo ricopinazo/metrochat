@@ -1,4 +1,4 @@
-#include "NetConnection.hpp"
+#include "NetConnection.h"
 #include <stdint.h>
 #include <unistd.h>
 #include <string.h>
